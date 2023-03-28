@@ -1,14 +1,18 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../store/cartSlice";
 
 
 
 export default function ProductItem({ product, dispatch}) {
 
+    const navigate = useNavigate();
+
     const addToCartHandler = (product) => {
-        dispatch(addToCart(product))
+        dispatch(addToCart(product));
+        navigate("/cart");
     }
 
   function truncate(string, n) {
