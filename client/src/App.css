@@ -78,3 +78,19 @@
 .product-image{
   height: 250px !important;;
 }
+
+
+/**************Cart************/
+
+.cart-titles .product-title{
+  padding-right: 150px !important;
+}
+
+.cart-titles .total-title{
+  padding-right: 150px !important;
+}
+
+.cart-product-quantity{
+  max-width: 12% !important;
+}
+
