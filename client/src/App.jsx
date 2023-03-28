@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Cart from  './components/Cart'
 import ErrorPage from './components/ErrorPage'
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer/>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
