@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <nav className="nav-bar">
       <NavLink to="/">
-        <h2>HagShop</h2>
+        <h2>HagrasShop</h2>
       </NavLink>
       <NavLink to="/cart">
         <div className="nav-cart">
