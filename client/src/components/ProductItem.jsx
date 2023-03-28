@@ -28,7 +28,7 @@ export default function ProductItem({ product, dispatch}) {
           <Card.Title>{product.price} $</Card.Title>
         </div>
 
-        <Button className="w-75" variant="info" href={product.url}
+        <Button className="w-75" variant="dark" href={product.url}
         onClick={() => addToCartHandler(product)}
         >
           Add tor cart

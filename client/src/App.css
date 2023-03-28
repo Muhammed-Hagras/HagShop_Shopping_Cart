@@ -34,6 +34,18 @@
   font-size: 40px;
 }
 
+.nav-bar a{
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.nav-bar a:hover{
+  color: yellow;
+}
+
 .nav-bar .nav-cart{
   display: flex;
   align-items: center;
