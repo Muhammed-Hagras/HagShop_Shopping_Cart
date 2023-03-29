@@ -91,7 +91,7 @@ const cartSlice = createSlice({
 
           cartTotal.myTotal += itemTotal;//total value price of all item in cart  
           cartTotal.myQuantity += quantity; //total quantinity
-
+          // console.log({cartTotal})
           return cartTotal;
         }, {
           myTotal: 0,
@@ -108,3 +108,9 @@ export const { addToCart, removeFromCart, decreaseCart, clearCart, getTotals } =
 
 export default cartSlice.reducer;
 
+// 81C94opqJTSFe2t3
+
+// mongosh "mongodb+srv://cluster0.l1gecpr.mongodb.net/myFirstDatabase" --apiVersion 1 --username muhammedhagras237
+
+// mongodb+srv://muhammedhagras237:81C94opqJTSFe2t3@cluster0.l1gecpr.mongodb.net/HagShop?retryWrites=true&w=majority
+// mongodb+srv://Muhammed_Hagras:15394086@cluster0.ynuyrq6.mongodb.net/Social-app?retryWrites=true&w=majority
