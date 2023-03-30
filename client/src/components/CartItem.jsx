@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { ToastContainer } from "react-toastify";
 import { addToCart, decreaseCart, removeFromCart } from "../../store/cartSlice"
 
 
@@ -44,7 +43,6 @@ export default function CartItem({ item }) {
       <div className="cart-product-total col-2 h3">
         {item.quantity * item.price}
       </div>
-      {/* <ToastContainer /> */}
     </div>
   );
 }

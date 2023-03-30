@@ -1,21 +1,20 @@
 const express = require('express');
 const Joi = require('joi');
-const User = require('../models/user');
+const {User} = require('../models/user');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const generateAuthToken = require('../utils/genAuthToken');
 
 router.post("/", async (req, res) => {
-    console.log("fds")
     try {
-        const schema = joi.object({
+        const schema = Joi.object({
             name: Joi.string().min(3).max(30).required(),
             email: Joi.string().min(3).max(20).email().required(),
             password: Joi.string().min(3).max(40).required()
         });
-        console.log("fds")
+
         const { error} = schema.validate(req.body);
-        console.log("fds")
+
     
         if (error) {
             return res.status(400).json({ error: error.details[0].message });
@@ -42,7 +41,7 @@ router.post("/", async (req, res) => {
     
         const token = generateAuthToken(newUser);
     
-        res.status(201).json({ token, user: savedUser });
+        res.send(token);
     } catch (error) {
         console.log(error)
         return res.status(500).json({error: error});

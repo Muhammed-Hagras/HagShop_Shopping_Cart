@@ -1,13 +1,13 @@
 const express = require('express');
 const Joi = require('joi');
-const User = require('../models/user');
+const {User} = require('../models/user');
 const rourter = express.Router();
 const bcrypt = require('bcrypt');
 const generateAuthToken = require('../utils/genAuthToken');
 
 
 rourter.post("/", async (req, res) => {
-    const schema = joi.object({
+    const schema = Joi.object({
         email: Joi.string().min(3).max(20).email().required(),
         password: Joi.string().min(3).max(40).required()
     });
