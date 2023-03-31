@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import CartItem from "./CartItem";
-import CartCheckOut from "./CArtCheckOut";
 import CartTitles from "./CartTitles";
 import { useDispatch } from "react-redux";
 import { clearCart, getTotals } from "./../store/cartSlice";

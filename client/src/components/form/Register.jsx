@@ -28,18 +28,20 @@ export default function Register() {
 
   };
   return (
-    <div className="container p-5 m-auto w-50 text-center">
+    <div className="container p-5 m-auto w-25 text-center bg-dark my-5 rounded shadow-lg text-white fs-5">
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Password</Form.Label>
           <Form.Control type="text" placeholder="Name" 
           onChange={(e)=>setUser({...user, name : e.target.value})}
+          className=" m-auto"
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email"
           onChange={(e)=>setUser({...user, email : e.target.value})}
+          className=" m-auto"
           />
         </Form.Group>
 
@@ -48,12 +50,13 @@ export default function Register() {
           <Form.Control type="password" placeholder="password" 
           
          onChange={(e)=>setUser({...user, password : e.target.value})}
+         className=" m-auto"
           />
         </Form.Group>
 
         
         <Button variant="success" type="submit"
-        className="mb-3"
+        className="mb-3 mt-3"
         >
         {registerStatus === "pending" ? "Submitting..." : "Register"}
         </Button>
