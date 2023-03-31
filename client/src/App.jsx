@@ -13,6 +13,7 @@ import Register from './components/form/register'
 import Login from './components/form/Login'
 import { useDispatch } from 'react-redux'
 import { loadUser } from './store/authSlice'
+import CheckoutSuccess from './components/payment/CheckoutSuccess'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<ErrorPage/>}/>
