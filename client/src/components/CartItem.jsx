@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart, decreaseCart, removeFromCart } from "../../store/cartSlice"
+import { addToCart, decreaseCart, removeFromCart } from "./../store/cartSlice"
 
 
 export default function CartItem({ item }) {
@@ -16,8 +16,6 @@ export default function CartItem({ item }) {
   const addToCartHandler = (product) => {
     dispatch(addToCart(product));
   };
-
-    decreaseCart
 
 
   return (

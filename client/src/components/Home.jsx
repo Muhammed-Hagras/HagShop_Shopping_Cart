@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
-import { getProducts } from '../../store/productsSlice'
+import { getProducts } from './../store/productsSlice'
 import ProductItem from './ProductItem';
 import 'react-toastify/dist/ReactToastify.css';
 

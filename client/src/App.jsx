@@ -9,12 +9,16 @@ import Cart from  './components/Cart'
 import ErrorPage from './components/ErrorPage'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
-import Register from "./components/form/Register"
+import Register from './components/form/register'
+import Login from './components/form/Login'
+import { useDispatch } from 'react-redux'
+import { loadUser } from './store/authSlice'
 
 function App() {
 
 
-
+  const dispatch = useDispatch();
+  dispatch(loadUser());
   return (
     <div className="App">
       <ToastContainer
@@ -25,6 +29,7 @@ function App() {
         <Route path="/home" element={<Home/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
     </div>

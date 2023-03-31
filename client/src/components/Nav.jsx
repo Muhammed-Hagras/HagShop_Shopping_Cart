@@ -1,16 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { logoutUser } from "../store/authSlice";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
 const Nav = () => {
-  const {cartTotalQuantity} = useSelector(state => state.cartReducer);
+  const { cartTotalQuantity } = useSelector((state) => state.cartReducer);
+  const { _id } = useSelector((state) => state.authReducer);
+  const dispatch = useDispatch();
+  
   return (
     <nav className="nav-bar">
       <NavLink to="/">
         <h2>HagrasShop</h2>
       </NavLink>
       <NavLink to="/cart">
-        <div className="nav-cart">
+        <div className="nav-cart me-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -26,6 +32,20 @@ const Nav = () => {
           </span>
         </div>
       </NavLink>
+      {_id ? (
+        <div onClick={() => {
+          dispatch(logoutUser(null));
+          toast.warning("Logged out!", { position: "bottom-left" })
+        }}
+        className="text-white fw-bold fs-5 logut-btn">
+          Logout
+          </div>
+      ) : (
+        <div className="authlinks d-flex justify-content-between gap-5">
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/register">Register</NavLink>
+        </div>
+      )}
     </nav>
   );
 };

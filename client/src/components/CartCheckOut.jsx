@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-export default function CartCheckOut({ cartTotalAmount }) {
+export default function CartCheckOut({ _id,cartTotalAmount }) {
+  const { _id} = useSelector(state => state.authReducer);
+  useEffect(() => {
+    console.log(_id)
+  },[])
   return (
     <div className="cart-checkout shadow p-5  ">
       <div className="subtotal d-flex justify-content-between my-3">
@@ -9,7 +14,13 @@ export default function CartCheckOut({ cartTotalAmount }) {
         <span>{cartTotalAmount}</span>
       </div>
       <p>Taxes and shipping calculated at checkout</p>
-      <button className="btn btn-info w-100 fs-5 mb-3">Check out</button>
+      {
+        _id? (
+          <button className="btn btn-info w-100 fs-5 mb-3">Check out</button>
+        ) : (
+          <NavLink to="/login" className="btn btn-warning">Login to Checkout</NavLink>
+        )
+      }
       <div className="continue-shopping">
         <NavLink
           to="/"
