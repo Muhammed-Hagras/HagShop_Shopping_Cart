@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { addToCart } from "./../store/cartSlice";
 
 export default function ProductItem({ product, dispatch }) {
+  console.log(product)
   const navigate = useNavigate();
 
   const addToCartHandler = (product) => {
@@ -20,13 +21,13 @@ export default function ProductItem({ product, dispatch }) {
       <Card.Title className="fw-bold">{product.name}</Card.Title>
       <Card.Img
         variant="top"
-        src={product.image}
+        src={product.image.url}
         alt={product.name}
         className="product-image"
       />
       <Card.Body>
         <div className="d-flex justify-content-between my-2">
-          <Card.Text>{truncate(product.description, 20)}</Card.Text>
+          <Card.Text>{truncate(product.desc, 20)}</Card.Text>
           <Card.Title>{product.price} $</Card.Title>
         </div>
 

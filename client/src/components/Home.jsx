@@ -24,7 +24,7 @@ const Home = () => {
       ): (
         <div className='row gap-3 justify-content-center products py-5'>
           {products.map(product => (
-            <ProductItem key={product.id} product={product} dispatch={dispatch}/>
+            <ProductItem key={product._id} product={product} dispatch={dispatch}/>
           ))}
         </div>
       )}

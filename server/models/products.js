@@ -6,11 +6,11 @@ const productScema = new mongoose.Schema({
     brand: { type: String, reuired: true},
     desc: { type: String, reuired: true},
     price: { type: Number, reuired: true},
-    image: { type: String, reuired: true},
+    image: { type: Object, reuired: true},
 },
     { timestamps: true }
 );
 
 const Product = mongoose.model("Product", productScema);
 
-module.exports = Product;
+exports.Product = Product;
