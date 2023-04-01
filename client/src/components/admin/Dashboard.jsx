@@ -52,6 +52,7 @@ export default function Dashboard() {
 const StyledDashboard = styled.div`
   display: flex;
   height: 100vh;
+
 `;
 
 const SideNav = styled.div`
@@ -62,7 +63,7 @@ const SideNav = styled.div`
   width: 300px;
   display: flex;
   flex-direction: column;
-  padding: 3rem 4rem
+  padding: 3rem 4rem;
   h3 {
     margin: 0 0 1rem 0;
     padding: 0;

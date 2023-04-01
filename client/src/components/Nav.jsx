@@ -9,9 +9,10 @@ const Nav = () => {
   const { cartTotalQuantity } = useSelector((state) => state.cartReducer);
   const { isAdmin,_id } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
+  console.log(isAdmin)
 
   return (
-    <nav className="nav-bar">
+    <nav className="nav-bar shadow">
       <NavLink to="/">
         <h2>HagrasShop</h2>
       </NavLink>
@@ -33,10 +34,12 @@ const Nav = () => {
         </div>
       </NavLink>
       {_id ? (
-        <div className="logged-links">
+        <div className="logged-links d-flex gap-3">
         {
           isAdmin? (
-            <NavLink to="/admin/dashboard"></NavLink>)
+            <NavLink to="/admin/summary"
+            className="text-white fw-bold fs-5 "
+            >Admin</NavLink>)
             : null
         }
           <div
