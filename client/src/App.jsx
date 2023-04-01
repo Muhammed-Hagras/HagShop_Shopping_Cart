@@ -14,6 +14,10 @@ import Login from './components/form/Login'
 import { useDispatch } from 'react-redux'
 import { loadUser } from './store/authSlice'
 import CheckoutSuccess from './components/payment/CheckoutSuccess'
+import Dashboard from './components/admin/dashboard'
+import Products from './components/admin/Products'
+import Summary from './components/admin/Summary'
+import CreateProducts from './components/admin/CreateProduct'
 
 function App() {
 
@@ -32,6 +36,12 @@ function App() {
         <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Dashboard />} >
+        <Route path="summary" element={<Summary />} />
+        <Route path="products" element={<Products />} >
+          <Route path="create-products" element={<CreateProducts />} />
+        </Route>
+        </Route>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
     </div>

@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux";
 
 const Nav = () => {
   const { cartTotalQuantity } = useSelector((state) => state.cartReducer);
-  const { _id } = useSelector((state) => state.authReducer);
+  const { isAdmin,_id } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
-  
+
   return (
     <nav className="nav-bar">
       <NavLink to="/">
@@ -33,13 +33,22 @@ const Nav = () => {
         </div>
       </NavLink>
       {_id ? (
-        <div onClick={() => {
-          dispatch(logoutUser(null));
-          toast.warning("Logged out!", { position: "bottom-left" })
-        }}
-        className="text-white fw-bold fs-5 logut-btn">
-          Logout
+        <div className="logged-links">
+        {
+          isAdmin? (
+            <NavLink to="/admin/dashboard"></NavLink>)
+            : null
+        }
+          <div
+            onClick={() => {
+              dispatch(logoutUser(null));
+              toast.warning("Logged out!", { position: "bottom-left" });
+            }}
+            className="text-white fw-bold fs-5 logut-btn"
+          >
+            Logout
           </div>
+        </div>
       ) : (
         <div className="authlinks d-flex justify-content-between gap-5">
           <NavLink to="/login">Login</NavLink>

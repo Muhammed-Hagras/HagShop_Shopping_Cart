@@ -12,6 +12,7 @@ const initialState = {
   loginStatus: "",
   registerError: "",
   loginError: "",
+  isAdmin: true,
   userLoaded: false,
 };
 
