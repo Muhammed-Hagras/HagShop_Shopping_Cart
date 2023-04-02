@@ -5,16 +5,7 @@ const orderSchema = new mongoose.Schema(
     userId: { type: String, required: true },
     customerId: {type: String},
     paymentIntetId: {type: String},
-    products: [
-       { id: { type: String},
-        name: { type: String },
-        price: { type: Number },
-        quantity: { type: Number },
-        image: { type: String },
-        description: { type: String},
-        brand: { type: String},
-    }
-    ],
+    products: [],
     subtotal: { type: Number, required: true },
     total: { type: Number, required: true },
     shipping: { type: Object, required: true },

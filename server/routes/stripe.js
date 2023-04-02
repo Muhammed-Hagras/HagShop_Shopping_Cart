@@ -13,7 +13,7 @@ router.post("/create-checkout-session", async (req, res) => {
   const customer = await stripe.customers.create({
     metadata: {
       userId: req.body.userId,
-      cart: JSON.stringify(req.body.cartItems),
+      // cart: JSON.stringify(req.body.cartItems), 500 characters error should be lineitems iteslf
     },
   });
 
@@ -23,7 +23,7 @@ router.post("/create-checkout-session", async (req, res) => {
         currency: "Egp",
         product_data: {
           name: item.name,
-          images: [item.image],
+          images: [item.image.url],
           description: item.description,
           metadata: {
             id: item.id,
@@ -74,43 +74,40 @@ router.post("/create-checkout-session", async (req, res) => {
   res.send({ url: session.url });
 });
 
-
 //Create Order
 
-const createOrder = async (customer, data) => {
-    const Items = JSON.parse(customer.metadata.cart);
-    // Items.map(item => {
-    //     return {
-            
-    //     }
-    //   })
+const createOrder = async (customer, data, lineItems) => {
+  // const Items = JSON.parse(customer.metadata.cart);
+  // Items.map(item => {
+  //     return {
 
-    const newOrder = new Order({
-      userId: customer.metadata.userId,
-      customerId: data.customer,
-      paymentIntetId: data.paymentIntetId,
-      products: Items,
-      subtotal: data.amount_subtotal,
-      tax: data.amount_tax,
-      shipping: data.customer_details,
-      payment_status: data.payment_status,
-      total: data.amount_total,
-    });
+  //     }
+  //   })
 
-    try {
-        const savedOrder = await newOrder.save();
-        console.log("Hagras Order:  " + savedOrder)
-    } catch (error) {
-        console.log(error);
-    }
-  };
+  const newOrder = new Order({
+    userId: customer.metadata.userId,
+    customerId: data.customer,
+    paymentIntetId: data.paymentIntetId,
+    products: lineItems.data,
+    subtotal: data.amount_subtotal,
+    tax: data.amount_tax,
+    shipping: data.customer_details,
+    payment_status: data.payment_status,
+    total: data.amount_total,
+  });
 
+  try {
+    const savedOrder = await newOrder.save();
+    console.log("Hagras Order:  " + savedOrder);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //Webbhook
 
 // This is your Stripe CLI webhook secret for testing your endpoint locally.
-const endpointSecret = process.env.WEBHOOK_SECRET
-  
+const endpointSecret = process.env.WEBHOOK_SECRET;
 
 router.post(
   "/webhook",
@@ -150,7 +147,7 @@ router.post(
         header,
         endpointSecret
       );
-    //   console.log(`Hagras Webhook Verified: `, event);
+      //   console.log(`Hagras Webhook Verified: `, event);
     } catch (err) {
       console.log(`Webhook Error: ${err.message}`);
       res.status(400).send(`Webhook Error: ${err.message}`);
@@ -162,22 +159,31 @@ router.post(
 
     // Handle the checkout.session.completed event
     if (eventType === "checkout.session.completed") {
-        stripe.customers
-          .retrieve(data.customer)
-          .then(async (customer) => {
-            try {
-              // CREATE ORDER
-              createOrder(customer, data);
-            } catch (err) {
-              console.log(typeof createOrder);
-              console.log(err);
-            }
+      stripe.customers
+        .retrieve(data.customer)
+        .then(async (customer) => {
           
-    // console.log({customer});
-    console.log({data})
-    })
-          .catch((err) => console.log(err.message));
-      }
+            stripe.checkout.sessions.listLineItems(
+              data.id,
+              {},
+              function (err, lineItems) {
+                // asynchronously called
+                console.log("Line_items" + lineItems);
+                // CREATE ORDER
+                createOrder(customer, data, lineItems);
+              }
+            )
+        })
+        //   .catch (err) {
+        //     console.log(typeof createOrder);
+        //     console.log(err);
+          
+
+        //   // console.log({customer});
+        //   console.log({ data });
+        // })
+        .catch((err) => console.log(err.message));
+    }
 
     // Return a 200 response to acknowledge receipt of the event
     res.send().end();

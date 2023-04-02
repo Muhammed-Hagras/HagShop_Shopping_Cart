@@ -22,13 +22,13 @@ export default function CartItem({ item }) {
     <div className="cart-item border-top border-bottom py-5 row align-items-center ">
       <div className="cart-product col-6 d-flex  align-items-center">
         <img
-          src={item.image}
+          src={item.image.url}
           alt={item.name}
           className="cart-product-price-image me-3 h-100 w-100"
         />
         <div className="cart-product-desc">
           <h3 className="cart-product-title">{item.name}</h3>
-          <p className="cart-product-description h6">{item.description}</p>
+          <p className="cart-product-description h6">{item.desc}</p>
           <button className="btn btn-dark " onClick={() => cartRemoveHandler(item)}>Remove</button>
         </div>
       </div>

@@ -57,7 +57,7 @@ const Cart = () => {
               <div className="cart-items ">
                 {cartItems &&
                   cartItems.map((item) => (
-                    <CartItem key={item.id} item={item} />
+                    <CartItem key={item._id} item={item} />
                   ))}
               </div>
               <div className="cart-summary d-flex pb-5 mt-5 justify-content-between ">

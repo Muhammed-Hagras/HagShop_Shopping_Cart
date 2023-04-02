@@ -7,7 +7,6 @@ const auth = (req, res, next) => {
   try {
     const jwtSecretKey = process.env.JWT_SECRET_KEY;
     const decoded = jwt.verify(token, jwtSecretKey);
-console.log(decoded)
     req.user = decoded;
     next();
   } catch (ex) {

@@ -9,7 +9,6 @@ const { isAdmin } = require('../middleware/auth');
 
 router.post("/", isAdmin ,async( req, res ) => {
     const { name, brand, desc, price, image} = req.body;
-    console.log("before try" + name)
     try {
         if (image) {
           const uploadedResponse = await cloudinary.uploader.upload(image, {

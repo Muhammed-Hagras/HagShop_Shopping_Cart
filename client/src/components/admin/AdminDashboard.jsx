@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 export default function AdminDashboard() {
 
   const {isAdmin} = useSelector((state) => state.authReducer);
-  if (!isAdmin) return <div className='d-flex  bg-danger fs-1 text-white w-50 h-50 m-auto align-items-center justify-content-center p-5 mt-5 text-center'><p>Access denied. Not an Admin!</p></div>;
+  if (!isAdmin) return <NotAdmin className='d-flex  bg-danger fs-1 text-white w-50 h-50 m-auto align-items-center justify-content-center p-5 mt-5 text-center'><p>Access denied. Not an Admin!</p></NotAdmin>;
 
   
   return (
@@ -88,3 +88,10 @@ const Content = styled.div`
   padding: 4rem 8rem;
   width: 100%;
 `; 
+
+const NotAdmin = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+`
