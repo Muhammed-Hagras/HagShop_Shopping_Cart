@@ -34,7 +34,7 @@ export default function CreateProduct() {
       image: productImag
     }))
   }
-
+console.log(productImag)
   return (
     <div className='product-form d-flex justify-content-between gap-3'>
       <Form className='bg-dark py-5 px-5 w-50 rounded text-white mb-5 shadow'
@@ -56,8 +56,9 @@ export default function CreateProduct() {
       <option value="samsung">Samsung</option>
       <option value="lab">Lab</option>
       <option value="tablet">Tablet</option>
+      <option value="other">Other</option>
     </Form.Select>
-        
+        {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem distinctio perferendis hic vel accusamus, sunt nulla laborum vero dolor non cum et! Consequuntur quod dignissimos reiciendis necessitatibus laborum totam minima? */}
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Control type="text" placeholder="Name"
         onChange={(e) => setName(e.target.value)}
