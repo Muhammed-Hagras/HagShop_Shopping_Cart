@@ -14,16 +14,19 @@ import Login from './components/form/Login'
 import { useDispatch } from 'react-redux'
 import { loadUser } from './store/authSlice'
 import CheckoutSuccess from './components/payment/CheckoutSuccess'
-import Dashboard from './components/admin/dashboard'
 import Products from './components/admin/Products'
 import Summary from './components/admin/Summary'
 import CreateProducts from './components/admin/CreateProduct'
+import AdminDashboard from './components/admin/AdminDashboard'
+import { useSelector } from 'react-redux'
 
 function App() {
 
 
   const dispatch = useDispatch();
   dispatch(loadUser());
+  // const auth  = useSelector((state) => state.authReducer);
+  // console.log({auth})
   return (
     <div className="App">
       <ToastContainer
@@ -36,7 +39,7 @@ function App() {
         <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Dashboard />} >
+        <Route path="/admin" element={<AdminDashboard />} >
         <Route path="summary" element={<Summary />} />
         <Route path="products" element={<Products />} >
           <Route path="create-products" element={<CreateProducts />} />

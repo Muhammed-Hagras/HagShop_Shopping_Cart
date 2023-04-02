@@ -2,11 +2,12 @@ const express = require('express');
 const { Product } = require('../models/products')
 const router = express.Router();
 const cloudinary = require("../utils/cloudinary");
+const { isAdmin } = require('../middleware/auth');
 
 
 //Create
 
-router.post("/", async( req, res ) => {
+router.post("/", isAdmin ,async( req, res ) => {
     const { name, brand, desc, price, image} = req.body;
     console.log("before try" + name)
     try {

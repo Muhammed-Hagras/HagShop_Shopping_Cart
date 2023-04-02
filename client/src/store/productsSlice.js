@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
-import { baseURL } from "./api"
+import { baseURL, setHeaders } from "./api"
 import { toast } from "react-toastify"
 
 const initialState= { products: [], status: null, isLoading: false, error: null }
@@ -24,7 +24,7 @@ export const CreateProducts = createAsyncThunk(
         const res = await axios.post(
           `${baseURL}/products`,
           product,
-        //   setHeaders()
+          setHeaders()
         );
   
         return res.data;
@@ -63,7 +63,7 @@ const productsSlice = createSlice({
           [CreateProducts.fulfilled]: (state, action) => {
             state.products.push(action.payload);
             state.status = "success";
-            toast.success("Product Created!");
+            toast.success("Product Created successfully!");
           },
           [CreateProducts.rejected]: (state, action) => {
             state.status = "rejected";

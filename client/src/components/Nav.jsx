@@ -1,15 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logoutUser } from "../store/authSlice";
+import { loadUser, logoutUser } from "../store/authSlice";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 
 const Nav = () => {
   const { cartTotalQuantity } = useSelector((state) => state.cartReducer);
-  const { isAdmin,_id } = useSelector((state) => state.authReducer);
+  
+
   const dispatch = useDispatch();
-  console.log(isAdmin)
+
+  const  { isAdmin,_id } = useSelector((state) => state.authReducer);
+  // console.log({isAdmin,_id })
 
   return (
     <nav className="nav-bar shadow">

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { addToCart } from "./../store/cartSlice";
 
 export default function ProductItem({ product, dispatch }) {
-  console.log(product)
+  
   const navigate = useNavigate();
 
   const addToCartHandler = (product) => {

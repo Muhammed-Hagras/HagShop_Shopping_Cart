@@ -2,8 +2,14 @@ import React from 'react'
 
 import styled from "styled-components";
 import { Outlet, NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
-export default function Dashboard() {
+export default function AdminDashboard() {
+
+  const {isAdmin} = useSelector((state) => state.authReducer);
+  if (!isAdmin) return <div className='d-flex  bg-danger fs-1 text-white w-50 h-50 m-auto align-items-center justify-content-center p-5 mt-5 text-center'><p>Access denied. Not an Admin!</p></div>;
+
+  
   return (
     <StyledDashboard>
     <SideNav>

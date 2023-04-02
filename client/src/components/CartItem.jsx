@@ -24,7 +24,7 @@ export default function CartItem({ item }) {
         <img
           src={item.image}
           alt={item.name}
-          className="cart-product-price-image me-3 mw-100"
+          className="cart-product-price-image me-3 h-100 w-100"
         />
         <div className="cart-product-desc">
           <h3 className="cart-product-title">{item.name}</h3>

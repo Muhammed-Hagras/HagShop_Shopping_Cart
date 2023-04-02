@@ -54,7 +54,7 @@ export default function CreateProduct() {
       <option> select Brand</option>
       <option value="iphone">iphone</option>
       <option value="samsung">Samsung</option>
-      <option value="lab">Tab</option>
+      <option value="lab">Lab</option>
       <option value="tablet">Tablet</option>
     </Form.Select>
         

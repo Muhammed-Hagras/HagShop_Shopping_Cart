@@ -12,7 +12,7 @@ const initialState = {
   loginStatus: "",
   registerError: "",
   loginError: "",
-  isAdmin: true,
+  isAdmin: false,
   userLoaded: false,
 };
 
@@ -46,7 +46,6 @@ export const loginUser = createAsyncThunk(
         password: user.password,
       });
       localStorage.setItem("token", token.data);
-      
       return token.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -68,6 +67,7 @@ const authSlice = createSlice({
           name: user.name,
           email: user.email,
           _id: user._id,
+          isAdmin: user.isAdmin,
           userLoaded: true,
         };
       } else { 
@@ -84,6 +84,7 @@ const authSlice = createSlice({
         name: "",
         email: "",
         _id: "",
+        isAdmin: false,
         registerStatus: "",
         loginStatus: "",
         registerError: "",
@@ -107,6 +108,7 @@ const authSlice = createSlice({
           name: user.name,
           email: user.email,
           _id: user._id,
+          isAdmin: user.isAdmin,
           registerStatus: "success",
         };
       } else return state;
