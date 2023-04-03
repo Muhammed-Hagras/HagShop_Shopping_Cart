@@ -66,7 +66,7 @@ const SideNav = styled.div`
   height: calc(100vh - 70px);
   position: absolute;
   overflow-y: auto;
-  width: 300px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   padding: 3rem 4rem;
@@ -84,7 +84,7 @@ const SideNav = styled.div`
 `;
 
 const Content = styled.div`
-  margin-left: 200px;
+  margin-left: 100px;
   padding: 4rem 8rem;
   width: 100%;
 `; 
