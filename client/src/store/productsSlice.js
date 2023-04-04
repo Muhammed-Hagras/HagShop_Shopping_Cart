@@ -3,7 +3,7 @@ import axios from "axios"
 import { baseURL, setHeaders } from "./api"
 import { toast } from "react-toastify"
 
-const initialState= { products: [], status: null, isLoading: false, error: null }
+const initialState= {products: [], status: null, isLoading: false, error: null }
 
 export const getProducts = createAsyncThunk("products/getProducts", async (_, thunkAPI) =>{
     const { rejectWithValue } = thunkAPI;
@@ -15,6 +15,7 @@ export const getProducts = createAsyncThunk("products/getProducts", async (_, th
         return rejectWithValue(error)
     }
 })
+
 
 
 export const CreateProducts = createAsyncThunk(
@@ -41,6 +42,7 @@ const productsSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
+      //Get Products
         [getProducts.pending]: (state,action) => {
             state.status = "pending";
             state.isLoading = true;

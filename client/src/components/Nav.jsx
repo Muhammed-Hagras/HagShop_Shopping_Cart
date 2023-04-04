@@ -15,7 +15,7 @@ const Nav = () => {
   // console.log({isAdmin,_id })
 
   return (
-    <nav className="nav-bar shadow">
+    <nav className="nav-bar shadow sticky-top">
       <NavLink to="/">
         <h2>HagrasShop</h2>
       </NavLink>
@@ -66,3 +66,5 @@ const Nav = () => {
 };
 
 export default Nav;
+
+// 

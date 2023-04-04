@@ -5,6 +5,8 @@ const products = require('./products');
 const register = require("./routes/register");
 const login = require("./routes/login");
 const stripe = require("./routes/stripe");
+const users = require("./routes/users");
+const orders = require("./routes/orders");
 const productRouter = require("./routes/proudcts");
 
 const app = express();
@@ -18,6 +20,9 @@ app.use("/api/register", register)
 app.use("/api/login", login);
 app.use("/api/stripe", stripe);  
 app.use("/api/products", productRouter);
+app.use("/api/users", users);
+app.use("/api/orders", orders);
+
 
 app.get('/', (req, res) => {
     res.send('Hello World');
