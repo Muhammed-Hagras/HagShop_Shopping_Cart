@@ -11,6 +11,7 @@ const Home = () => {
   }, [dispatch])
   
   const { products, isLoading, error } = useSelector(state=>state.productsReducres)
+  console.log(products)
 
   return (
     <div className='bg-warning h-100 p-5 d-flex items-center text-center'>

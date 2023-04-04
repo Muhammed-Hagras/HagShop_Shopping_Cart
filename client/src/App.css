@@ -102,8 +102,29 @@
 
 .link-active {
   color: #4b70e2;
+  border-left: 3px solid #4b70e2;
+  padding-left: 5px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
 
 .link-inactive {
   color: rgb(97, 97, 97);
+  
+}
+
+.styled-chart{
+  height: 300px;
+  /* margin-top: 2rem;
+  padding: 1rem;
+  border: 2px solid rgb(48, 51, 78, 0.2);
+  border-radius: 5px; */
+
+}
+
+.my-table-row{
+  background-color: rgb(170 171 170 / 41%);
 }
