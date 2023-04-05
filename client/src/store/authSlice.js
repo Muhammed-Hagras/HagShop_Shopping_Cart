@@ -78,6 +78,7 @@ const authSlice = createSlice({
       }
     },
     logoutUser: (state, action) => {
+      localStorage.removeItem("cartItems")
       localStorage.removeItem("token");
       return {
         token: "",

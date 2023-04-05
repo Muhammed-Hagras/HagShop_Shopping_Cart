@@ -52,7 +52,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/order/:id" element={<Order />} />
+        <Route path="/orders/:id" element={<Order />} />
         <Route path="/users/:id" element={<UserProfile />} />
         <Route path="/admin" element={<AdminDashboard />} >
         <Route path="summary" element={<Summary />} />
