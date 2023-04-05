@@ -8,7 +8,6 @@ export default function Order() {
   const { id } = useParams();
   const [order, setorder] = useState({});
   const [loading, setLoading] = useState(false);
-  console.log(order);
 
   useEffect(() => {
     setLoading(true);
@@ -40,15 +39,15 @@ export default function Order() {
                 Delivery Status :
                 <span className="d-inline-block ms-3">
                   {order.delivery_status === "pending" ? (
-                    <Pending className="text-warning p-2 rounded bg-light ">
+                    <Pending className="text-warning p-2 rounded bg-light p-2">
                       Pending
                     </Pending>
                   ) : order.delivery_status === "dispatched" ? (
-                    <Dispatched className="text-info p-2 rounded bg-light ">
+                    <Dispatched className="text-info p-2 rounded bg-light p-2">
                       Dispatched
                     </Dispatched>
                   ) : order.delivery_status === "delivered" ? (
-                    <Delivered className="text-success p-2 rounded bg-light ">
+                    <Delivered className="text-success p-2 rounded bg-light p-2">
                       Delivered
                     </Delivered>
                   ) : (
@@ -99,15 +98,12 @@ export default function Order() {
 }
 
 const Pending = styled.div`
-  width: 100px;
 `;
 
 const Dispatched = styled.div`
-  width: 100px;
 `;
 
 const Delivered = styled.div`
-  width: 100px;
 `;
 
 // {order?.products?.map((product, idx) => (

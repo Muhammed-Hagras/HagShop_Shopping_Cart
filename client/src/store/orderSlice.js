@@ -26,38 +26,6 @@ export const getOrders = createAsyncThunk(
   }
 );
 
-// export const Createorders = createAsyncThunk(
-//   "orders/Createorders",
-//   async (order) => {
-//     try {
-//       const res = await axios.post(
-//         `${baseURL}/orders`,
-//         order,
-//         setHeaders()
-//       );
-
-//       return res.data;
-//     } catch (error) {
-//       console.log(error);
-//       toast.error(error.response?.data);
-//     }
-//   }
-// );
-
-// export const deleteorders = createAsyncThunk(
-//   "orders/deleteorders",
-//   async (id) => {
-//     try {
-//       const res = await axios.delete(`${baseURL}/orders/${id}`, setHeaders());
-
-//       return res.data;
-//     } catch (error) {
-//       console.log(error);
-//       toast.error(error.response?.data);
-//     }
-//   }
-// );
-
 export const editorders = createAsyncThunk(
   "orders/editorders",
   async (editedOrder, { getState }) => {
@@ -105,18 +73,6 @@ const ordersSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    // //Create orders
-    // [Createorders.pending]: (state, action) => {
-    //   state.status = "pending";
-    // },
-    // [Createorders.fulfilled]: (state, action) => {
-    //   state.orders.push(action.payload);
-    //   state.status = "success";
-    //   toast.success("order Created successfully!");
-    // },
-    // [Createorders.rejected]: (state, action) => {
-    //   state.status = "rejected";
-    // },
     //Edit orders
     [editorders.pending]: (state, action) => {
       state.editStatus = "pending";
@@ -132,21 +88,6 @@ const ordersSlice = createSlice({
     [editorders.rejected]: (state, action) => {
       state.editStatus = "rejected";
     },
-    // //Delete orders
-    // [deleteorders.pending]: (state, action) => {
-    //   state.deleteStatus = "pending";
-    // },
-    // [deleteorders.fulfilled]: (state, action) => {
-    //   const newordersList = state.orders.filter(
-    //     (order) => order._id !== action.payload._id
-    //   );
-    //   state.orders = newordersList;
-    //   state.deleteStatus = "success";
-    //   toast.error("order Deleted successfully!");
-    // },
-    // [deleteorders.rejected]: (state, action) => {
-    //   state.deleteStatus = "rejected";
-    // },
   },
 });
 

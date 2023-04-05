@@ -13,7 +13,7 @@ export default function OrdersList() {
 
   useEffect(() => {
     dispatch(getOrders());
-  },[]);
+  },[dispatch]);
 
   const { orders } = useSelector((state) => state.OrdersReducer);
 
