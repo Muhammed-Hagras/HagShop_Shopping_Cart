@@ -3,15 +3,15 @@ import { getProducts } from "./../../../store/productsSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function AllTimeData({ data }) {
-      const dispatch = useDispatch()
-    useEffect(() => {
-      dispatch(getProducts())
-    }, [dispatch])
+    //   const dispatch = useDispatch()
+    // useEffect(() => {
+    //   dispatch(getProducts())
+    // }, [dispatch])
 
   const { products, isLoading } = useSelector(
-    (state) => state.productsReducres  // does not work without dispatch !
+    (state) => state.productsReducres  // does not work without dispatch ! //Solved using it in App
   );
-  console.log(data)
+  
   return (
     <div className="styled-transactions">
       {isLoading ? (

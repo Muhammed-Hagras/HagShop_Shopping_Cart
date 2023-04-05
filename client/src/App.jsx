@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Nav'
 import { Route, Routes } from 'react-router-dom'
@@ -19,14 +19,23 @@ import Summary from './components/admin/summaryComponents/Summary'
 import CreateProducts from './components/admin/CreateProduct'
 import ProductsList from './components/admin//list/ProductsList'
 import AdminDashboard from './components/admin/AdminDashboard'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import Orders from './components/admin/Orders'
 import Users from './components/admin/Users'
+import { getProducts } from './store/productsSlice'
+import ProductDetails from './components/Details/ProductDetails'
+import Order from './components/Details/Order'
+import UserProfile from './components/Details/UserProfile'
 
 function App() {
 
 
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getProducts())
+  // }, [dispatch])
+  dispatch(getProducts())
+
   dispatch(loadUser());
   // const auth  = useSelector((state) => state.authReducer);
   // console.log({auth})
@@ -42,6 +51,9 @@ function App() {
         <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/order/:id" element={<Order />} />
+        <Route path="/users/:id" element={<UserProfile />} />
         <Route path="/admin" element={<AdminDashboard />} >
         <Route path="summary" element={<Summary />} />
         <Route path="users" element={<Users />} />
