@@ -20,6 +20,37 @@ router.get("/", isAdmin, async (req, res) => {
   }
 });
 
+// Get one orders
+router.get("/find/:id", async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.id);
+    res.status(200).send(order);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+//UPdate ORDER
+
+router.put("/:id", isAdmin, async (req, res) => {
+
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true },
+      );
+      // console.log(updatedOrder)
+    res.status(200).send(updatedOrder);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+
 // GET ORDERS STATS
 
 //Getting Last Previous month stats
