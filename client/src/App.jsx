@@ -26,6 +26,7 @@ import { getProducts } from './store/productsSlice'
 import ProductDetails from './components/Details/ProductDetails'
 import Order from './components/Details/Order'
 import UserProfile from './components/Details/UserProfile'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
         </Route>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
+      <Footer/>
     </div>
   )
 }

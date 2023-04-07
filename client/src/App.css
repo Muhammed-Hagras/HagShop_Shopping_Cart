@@ -79,6 +79,24 @@
   height: 250px !important;;
 }
 
+/*******Carousel**********/
+
+.slideImg {
+  height: 660px;
+  filter: grayscale(0.6);
+  -webkit-filter: grayscale(0.6);
+  object-fit: cover;
+}
+
+.carousel-caption {
+  left: 50%;
+  top: 40%;
+  /* right: 0;
+  bottom: 0;
+  transform: translate(-50%, -50%); */
+}
+
+
 
 /**************Cart************/
 

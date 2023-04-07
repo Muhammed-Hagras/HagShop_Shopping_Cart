@@ -56,6 +56,9 @@ console.log(productImag)
       <option value="samsung">Samsung</option>
       <option value="lab">Lab</option>
       <option value="tablet">Tablet</option>
+      <option value="men's clothing">Men's clothing</option>
+      <option value=" women's Clothing">Women's Clothing</option>
+      {/* <option value="men's clothing">Men's clothing</option> */}
       <option value="other">Other</option>
     </Form.Select>
         {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem distinctio perferendis hic vel accusamus, sunt nulla laborum vero dolor non cum et! Consequuntur quod dignissimos reiciendis necessitatibus laborum totam minima? */}

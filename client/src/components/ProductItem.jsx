@@ -10,7 +10,7 @@ export default function ProductItem({ product, dispatch }) {
 
   const addToCartHandler = (product) => {
     dispatch(addToCart(product));
-    navigate("/cart");
+    // navigate("/cart");
   };
 
   function truncate(string, n) {
