@@ -31,7 +31,10 @@
 
 - ### Stripe payment - webhooks for creating orders to database.
 
-- ### JWT - bcrypt for Authentication and Autherizatin.
+- ### JWT - bcrypt for Authentication and Autherization.
+
+
+
 
 
 
