@@ -27,10 +27,11 @@
 
 - ### Matreial UI - Styled Components.
 
-- ### React-moment for dates.
+- ### moment for dates.
 
-- ### Stripe payment - webhooks to create orders to database.
-- ### JavaScript/ES6.
+- ### Stripe payment - webhooks for creating orders to database.
+
+- ### JWT - bcrypt for Authentication and Autherizatin.
 
 
 
