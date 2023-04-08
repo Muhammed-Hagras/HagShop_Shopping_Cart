@@ -19,13 +19,14 @@ const cartSlice = createSlice({
       if (existingIndex >= 0) {
         state.cartItems[existingIndex].quantity += 1;
         toast.info(
-          `Increaed ${state.cartItems[existingIndex].name} product quantity`,
+          `${state.cartItems[existingIndex].name} areadly exist and increaed  product quantity`,
           {
             position: "bottom-left",
           }
         );
       } else {
         let myNewProduct = { ...action.payload, quantity: 1 };
+        state.cartTotalQuantity +=1;     // increment total quantity => solve problem of not increasing nav-cart at home page
         state.cartItems.push(myNewProduct);
         toast.success(` ${action.payload.name} added to cart`, {
           position: "bottom-left",

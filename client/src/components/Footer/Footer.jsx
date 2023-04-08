@@ -8,11 +8,11 @@ export default function Footer() {
       <div className="top">
         <div className="item">
           <h1>Categories</h1>
+          <span>Labs</span>
+          <span>Tablets</span>
+          <span>Phones</span>
           <span>Women</span>
           <span>Men</span>
-          <span>Shoes</span>
-          <span>Accessories</span>
-          <span>New Arrivals</span>
         </div>
         <div className="item">
           <h1>Links</h1>

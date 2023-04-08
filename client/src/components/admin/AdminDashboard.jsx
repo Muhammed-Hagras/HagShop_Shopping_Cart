@@ -8,7 +8,7 @@ export default function AdminDashboard() {
   const { isAdmin } = useSelector((state) => state.authReducer);
   if (!isAdmin)
     return (
-      <NotAdmin className="d-flex  bg-danger fs-1 text-white w-50 h-50 m-auto align-items-center justify-content-center p-5 mt-5 text-center">
+      <NotAdmin className="d-flex  bg-danger fs-1 text-white w-50 vh-70 m-auto align-items-center justify-content-center p-5 mt-5 text-center">
         <p>Access denied. Not an Admin!</p>
       </NotAdmin>
     );
@@ -102,8 +102,8 @@ const Content = styled.div`
 `;
 
 const NotAdmin = styled.div`
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 `;

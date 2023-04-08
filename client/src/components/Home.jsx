@@ -5,14 +5,22 @@ import ProductItem from './ProductItem';
 import 'react-toastify/dist/ReactToastify.css';
 import Slider from './Slider/Slider';
 import Contact from './Contact/Contact';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { addToCart } from '../store/cartSlice';
+import { motion } from "framer-motion";
 
 const Home = () => {
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getProducts()) 
-  }, [dispatch])
+  const addToCartHandler = (product) => {
+    dispatch(addToCart(product));
+  };
+  
+  const navigate = useNavigate();
   
   const { products, isLoading, error } = useSelector(state=>state.productsReducres)
+
+  const SlicedProducts = products.slice(0, 8);
 
   const [filter, setFilter] = useState(products);
 
@@ -25,44 +33,24 @@ const Home = () => {
   return (
     <>
      <Slider/>
-     <>
-     <div className="buttons d-flex justify-content-center my-5 pb-5">
-          <button className="btn btn-outline-dark me-2" 
-          onClick={() => {setFilter(products)}}>
-            ALL
-            </button>
-            <button
-            className="btn btn-outline-dark me-2"
-            onClick={() => {
-              filteredProducts("lab");
-            }}
-          >
-            Lab
-          </button>
-          <button
-            className="btn btn-outline-dark me-2"
-            onClick={() => {
-              filteredProducts("samsung");
-            }}
-          >
-            Samsung
-          </button>
-          <button
-            className="btn btn-outline-dark me-2"
-            onClick={() => {
-              filteredProducts("other");
-            }}
-          >
-            Other
-          </button>
-        </div>
-     </>
 
     <div className='bg-light h-100 p-5 d-flex items-center text-center'>
     
       
       <div className='container'>
-      <h1 className='display-2 fw-bold text-dark'>Featured Products</h1>
+      <motion.h1 className='display-2 fw-bold text-dark'
+       initial={{ rotate: 0 }}
+       animate={{
+           rotate: 360,
+       }}
+       transition={{
+         type: "spring",
+         stiffness: 260,
+         damping: 20,
+         duration:7
+       }}
+      >Featured Products</motion.h1>
+
 
       {isLoading ? (
         <p>Loading...</p>
@@ -70,15 +58,19 @@ const Home = () => {
         <p>An error occured...</p>
       ): (
         <div className='row gap-3 justify-content-center products py-5'>
-          {products.map(product => (
-            <ProductItem key={product._id} product={product} dispatch={dispatch}/>
+          {SlicedProducts.map(product => (
+          
+            <ProductItem key={product._id} product={product} addToCartHandler={addToCartHandler} />
           ))}
+          <Button className='btn btn-primary  fs-5 shadow mt-5' style={{width: "250px"}}
+          onClick={() => navigate("/products")}
+         >Show More </Button>
         </div>
       )}
 
     </div>
     </div>
-    <Contact/>
+    {/* <Contact/> */}
     </>
   )
 }

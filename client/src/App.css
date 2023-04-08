@@ -115,6 +115,14 @@
 .logut-btn{
   cursor: pointer;
 }
+.cartImg{
+  width: 200px;
+  height: 250px;
+}
+
+.cart-product-desc{
+  text-align: left!;
+}
 
 /*****Admin******/
 

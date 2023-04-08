@@ -1,11 +1,24 @@
+.contact-page{
+  height: 50vh;
+}
+
 .contact {
+
   background-color: #2879fe;
   color: #fff;
   padding: 15px;
   display: flex;
   justify-content: center;
-
-  .wrapper {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, );
+  -moz-transform: translate(-50%, );
+  -ms-transform: translate(-50%, );
+  -o-transform: translate(-50%, );
+  .wrapper
+{
     width: 50%;
     display: flex;
     align-items: center;

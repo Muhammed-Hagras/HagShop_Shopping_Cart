@@ -2,22 +2,35 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "./../store/cartSlice";
+import { motion } from "framer-motion";
 
-export default function ProductItem({ product, dispatch }) {
-  
+export default function ProductItem({ product, addToCartHandler }) {
+  // const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  const addToCartHandler = (product) => {
-    dispatch(addToCart(product));
-    // navigate("/cart");
-  };
+  // const addToCartHandler = (product) => {
+  //   dispatch(addToCart(product));
+  //   // navigate("/cart");
+  // };
 
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
   return (
-    <Card style={{ width: "19rem" }} className="p-3 shadow">
+    <motion.Card style={{ width: "19rem" }} className="p-3 shadow"
+    whileHover={{ y:-50 }}
+    initial={{ y: 150 }}
+    animate={{
+      y: 0,
+    }}
+    transition={{
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+      duration:3
+    }}
+    >
+      
       <Card.Title className="fw-bold">{product.name}</Card.Title>
       <Card.Img
         variant="top"
@@ -39,6 +52,6 @@ export default function ProductItem({ product, dispatch }) {
           Add tor cart
         </Button>
       </Card.Body>
-    </Card>
+    </motion.Card>
   );
 }

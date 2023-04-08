@@ -22,7 +22,9 @@ export default function EditProduct({ productId }) {
   const [previewImg, setPreviewImg] = useState("");
   const dispatch = useDispatch();
 
-  const { products , editStatus} = useSelector((state) => state.productsReducres);
+  const { products, editStatus } = useSelector(
+    (state) => state.productsReducres
+  );
 
   const productImageUploader = (e) => {
     const file = e.target.files[0];
@@ -34,19 +36,19 @@ export default function EditProduct({ productId }) {
     };
   };
 
-
   const formHandler = (e) => {
     e.preventDefault();
     dispatch(
       editProducts({
-       productImg,
-       product: {
-        ...currentProduct,
-        name: name,
-        price: price,
-        brand: brand,
-        desc: desc,
-      }})
+        productImg,
+        product: {
+          ...currentProduct,
+          name: name,
+          price: price,
+          brand: brand,
+          desc: desc,
+        },
+      })
     );
   };
 
@@ -57,9 +59,9 @@ export default function EditProduct({ productId }) {
       (product) => product._id === productId
     );
 
-    console.log(selectedProduct)
+    console.log(selectedProduct);
     selectedProduct = selectedProduct[0];
-    console.log(selectedProduct)
+    console.log(selectedProduct);
 
     setCurrentProduct(selectedProduct);
     setPreviewImg(selectedProduct.image.url);
@@ -74,7 +76,6 @@ export default function EditProduct({ productId }) {
   const handleClose = () => {
     setOpen(false);
   };
-
 
   return (
     <div>
@@ -106,9 +107,11 @@ export default function EditProduct({ productId }) {
               >
                 <option> select Brand</option>
                 <option value="iphone">iphone</option>
-                <option value="samsung">Samsung</option>
+                <option value="phone">Phones</option>
                 <option value="lab">Lab</option>
-                <option value="tablet">Tablet</option>
+                <option value="tab">Tablet</option>
+                <option value="men's clothing">Men's clothing</option>
+                <option value="women's clothing">Women's Clothing</option>
                 <option value="other">Other</option>
               </Form.Select>
               {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem distinctio perferendis hic vel accusamus, sunt nulla laborum vero dolor non cum et! Consequuntur quod dignissimos reiciendis necessitatibus laborum totam minima? */}
@@ -139,7 +142,7 @@ export default function EditProduct({ productId }) {
                 />
               </Form.Group>
 
-              <Button  type="submit" className="btn btn-primary">
+              <Button type="submit" className="btn btn-primary">
                 {editStatus === "pending" ? "Submitting" : "Submit"}
               </Button>
             </Form>

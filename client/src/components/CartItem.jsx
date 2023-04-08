@@ -1,13 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart, decreaseCart, removeFromCart } from "./../store/cartSlice"
+import { motion } from "framer-motion";
 
 
-export default function CartItem({ item }) {
+
+export default function CartItem({ item , idx}) {
     const dispatch = useDispatch();
     const cartRemoveHandler = (item) => {
         dispatch(removeFromCart(item))
     }
+
+    console.log(idx)
 
     const decreaseCartHandler = (item) => {
       dispatch(decreaseCart(item));
@@ -17,16 +21,31 @@ export default function CartItem({ item }) {
     dispatch(addToCart(product));
   };
 
-
+  
   return (
-    <div className="cart-item border-top border-bottom py-5 row align-items-center ">
-      <div className="cart-product col-6 d-flex  align-items-center">
+    <motion.div
+    className="cart-item border-top border-bottom py-5 row align-items-center "
+    // eslint-disable-next-line eqeqeq
+    initial={{ x:  (idx %2  == 0)? 150 : -150 }}
+            animate={{
+              x: 0,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+              duration:17
+            }}
+    >
+      <div className="cart-product col-6 d-flex  align-items-center "
+      
+      >
         <img
           src={item.image.url}
           alt={item.name}
-          className="cart-product-price-image me-3 h-100 "
+          className="cart-product-price-image me-3 cartImg "
         />
-        <div className="cart-product-desc">
+        <div className="cart-product-desc text-left">
           <h3 className="cart-product-title">{item.name}</h3>
           <p className="cart-product-description h6">{item.desc}</p>
           <button className="btn btn-dark " onClick={() => cartRemoveHandler(item)}>Remove</button>
@@ -41,6 +60,6 @@ export default function CartItem({ item }) {
       <div className="cart-product-total col-2 h3">
         {item.quantity * item.price}
       </div>
-    </div>
+    </motion.div>
   );
 }

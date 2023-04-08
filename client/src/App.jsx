@@ -27,6 +27,9 @@ import ProductDetails from './components/Details/ProductDetails'
 import Order from './components/Details/Order'
 import UserProfile from './components/Details/UserProfile'
 import Footer from './components/Footer/Footer'
+import ProductsPage from './components/ProductsPage'
+import About from './components/About'
+import Contact from './components/Contact/Contact'
 
 function App() {
 
@@ -49,6 +52,9 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/products" element={<ProductsPage/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact/>}/>
         <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
