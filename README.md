@@ -6,15 +6,15 @@
 
 - In this project , customer can Register and login.
 
--browse and view between home page, about and contact.
+- browse and view between home page, about and contact.
 
--Can add products to cart. 
+- Can add products to cart. 
 
--In the cart can inc/decrease cart items. 
+- In the cart can inc/decrease cart items. 
 
--can remove products from cart.
+- can remove products from cart.
 
--checkout cart.
+- checkout cart.
 
 ## Tools:
 
