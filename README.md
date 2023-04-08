@@ -1,4 +1,4 @@
-# HagrasShopping_Shopping_Cart
+# HagrasShopping__Cart
 
 > This is a simple FullStack E-commerce website for electroni devices using MERN
 
