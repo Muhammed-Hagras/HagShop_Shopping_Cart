@@ -51,12 +51,11 @@ Runs the app in the development mode.\
 Open [http://localhost:8000](http://localhost:8000)
 
 
-An expreience as Customer
+### An expreience as Customer
 
 https://user-images.githubusercontent.com/40708938/230728326-4de6ddf5-fd34-4240-9651-ab8be4501011.mp4
 
-
-An expreience as Admin
+### An expreience as Admin
 
 https://user-images.githubusercontent.com/40708938/230728437-dacd296e-def6-4527-ae90-d318ffed3f2b.mp4
 
