@@ -24,7 +24,7 @@
 
 - ### React-moment for dates.
 
-- ### Strip payemnt - webhooks to create orders to database.
+- ### Stripe payment - webhooks to create orders to database.
 - ### JavaScript/ES6.
 
 
