@@ -6,7 +6,7 @@
 
 - In this project , customer can Register and login.
 
-- browse and view between home page, about and contact.
+- view and browse between home page, about and contact.
 
 - Can add products to cart. 
 
