@@ -22,12 +22,15 @@
 
 - ### React - Redux Toolkit.
 
-- ### Node and Express.
 - ### React-Bootstrap.
 
 - ### Matreial UI - Styled Components.
 
 - ### moment for dates.
+
+- ### Node and Express.
+
+- ### Cloudinary for uploading photos.
 
 - ### Stripe payment - webhooks for creating orders to database.
 
