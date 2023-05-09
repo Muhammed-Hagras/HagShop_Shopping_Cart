@@ -6,7 +6,7 @@
 
 - In this project , customer can Register and login.
 
-- browse and view between home page, about and contact.
+- view and browse between home page, about and contact.
 
 - Can add products to cart. 
 
@@ -22,12 +22,15 @@
 
 - ### React - Redux Toolkit.
 
-- ### Node and Express.
 - ### React-Bootstrap.
 
 - ### Matreial UI - Styled Components.
 
 - ### moment for dates.
+
+- ### Node and Express.
+
+- ### Cloudinary for uploading photos.
 
 - ### Stripe payment - webhooks for creating orders to database.
 
