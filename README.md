@@ -16,6 +16,8 @@
 
 - checkout cart.
 
+- Admin dashboard where admin can make many crud operations on user, products and orders.
+
 ## Tools:
 
 - ### Vite.
